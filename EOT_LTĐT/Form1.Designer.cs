@@ -68,6 +68,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cbVertex = new System.Windows.Forms.ComboBox();
+            this.btnBFS = new DevComponents.DotNetBar.ButtonX();
+            this.btnDFS = new DevComponents.DotNetBar.ButtonX();
+            this.txbPath = new System.Windows.Forms.TextBox();
+            this.btnCheckConnect = new DevComponents.DotNetBar.ButtonX();
+            this.btnHamilton = new DevComponents.DotNetBar.ButtonX();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -454,11 +459,64 @@
             this.cbVertex.Size = new System.Drawing.Size(57, 21);
             this.cbVertex.TabIndex = 10;
             // 
+            // btnBFS
+            // 
+            this.btnBFS.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnBFS.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnBFS.Location = new System.Drawing.Point(16, 466);
+            this.btnBFS.Name = "btnBFS";
+            this.btnBFS.Size = new System.Drawing.Size(73, 26);
+            this.btnBFS.TabIndex = 3;
+            this.btnBFS.Text = "BFS";
+            this.btnBFS.Click += new System.EventHandler(this.btnBFS_Click);
+            // 
+            // btnDFS
+            // 
+            this.btnDFS.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDFS.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDFS.Location = new System.Drawing.Point(94, 466);
+            this.btnDFS.Name = "btnDFS";
+            this.btnDFS.Size = new System.Drawing.Size(61, 26);
+            this.btnDFS.TabIndex = 3;
+            this.btnDFS.Text = "DFS";
+            this.btnDFS.Click += new System.EventHandler(this.btnDFS_Click);
+            // 
+            // txbPath
+            // 
+            this.txbPath.Location = new System.Drawing.Point(16, 571);
+            this.txbPath.Multiline = true;
+            this.txbPath.Name = "txbPath";
+            this.txbPath.Size = new System.Drawing.Size(139, 92);
+            this.txbPath.TabIndex = 11;
+            // 
+            // btnCheckConnect
+            // 
+            this.btnCheckConnect.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnCheckConnect.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnCheckConnect.Location = new System.Drawing.Point(16, 498);
+            this.btnCheckConnect.Name = "btnCheckConnect";
+            this.btnCheckConnect.Size = new System.Drawing.Size(91, 26);
+            this.btnCheckConnect.TabIndex = 3;
+            this.btnCheckConnect.Text = "Xét liên thông";
+            this.btnCheckConnect.Click += new System.EventHandler(this.btnCheckConnect_Click);
+            // 
+            // btnHamilton
+            // 
+            this.btnHamilton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnHamilton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnHamilton.Location = new System.Drawing.Point(16, 532);
+            this.btnHamilton.Name = "btnHamilton";
+            this.btnHamilton.Size = new System.Drawing.Size(116, 26);
+            this.btnHamilton.TabIndex = 3;
+            this.btnHamilton.Text = "Chu trình Hamilton";
+            this.btnHamilton.Click += new System.EventHandler(this.btnHamilton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 723);
+            this.Controls.Add(this.txbPath);
             this.Controls.Add(this.cbVertex);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -471,9 +529,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnDFS);
             this.Controls.Add(this.btnDeleteVertex);
             this.Controls.Add(this.btnDeleteEdge);
             this.Controls.Add(this.btnChangeWeight);
+            this.Controls.Add(this.btnHamilton);
+            this.Controls.Add(this.btnCheckConnect);
+            this.Controls.Add(this.btnBFS);
             this.Controls.Add(this.btnAddVertex);
             this.Controls.Add(this.btnAddEdge);
             this.Controls.Add(this.btnDrawGraph);
@@ -483,7 +545,6 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lý thuyết đồ thị";
-            this.Click += new System.EventHandler(this.Form1_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -530,6 +591,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbVertex;
+        private DevComponents.DotNetBar.ButtonX btnBFS;
+        private DevComponents.DotNetBar.ButtonX btnDFS;
+        private System.Windows.Forms.TextBox txbPath;
+        private DevComponents.DotNetBar.ButtonX btnCheckConnect;
+        private DevComponents.DotNetBar.ButtonX btnHamilton;
     }
 }
 
