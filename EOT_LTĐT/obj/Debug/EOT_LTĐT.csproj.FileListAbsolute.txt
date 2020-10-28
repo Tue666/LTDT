@@ -1,0 +1,12 @@
+D:\ti\LTĐT\EOT_LTĐT\EOT_LTĐT\bin\Debug\EOT_LTĐT.exe.config
+D:\ti\LTĐT\EOT_LTĐT\EOT_LTĐT\bin\Debug\EOT_LTĐT.exe
+D:\ti\LTĐT\EOT_LTĐT\EOT_LTĐT\bin\Debug\EOT_LTĐT.pdb
+D:\ti\LTĐT\EOT_LTĐT\EOT_LTĐT\obj\Debug\EOT_LTĐT.Properties.Resources.resources
+D:\ti\LTĐT\EOT_LTĐT\EOT_LTĐT\obj\Debug\EOT_LTĐT.csproj.GenerateResource.cache
+D:\ti\LTĐT\EOT_LTĐT\EOT_LTĐT\obj\Debug\EOT_LTĐT.csproj.CoreCompileInputs.cache
+D:\ti\LTĐT\EOT_LTĐT\EOT_LTĐT\obj\Debug\EOT_LTĐT.exe
+D:\ti\LTĐT\EOT_LTĐT\EOT_LTĐT\obj\Debug\EOT_LTĐT.pdb
+D:\ti\LTĐT\EOT_LTĐT\EOT_LTĐT\obj\Debug\EOT_LTĐT.Form1.resources
+D:\ti\LTĐT\EOT_LTĐT\EOT_LTĐT\bin\Debug\DevComponents.DotNetBar2.dll
+D:\ti\LTĐT\EOT_LTĐT\EOT_LTĐT\obj\Debug\EOT_LTĐT.csproj.CopyComplete
+D:\ti\LTĐT\EOT_LTĐT\EOT_LTĐT\obj\Debug\EOT_LTĐT.csprojAssemblyReference.cache
