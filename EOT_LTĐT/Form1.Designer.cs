@@ -55,9 +55,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txbEdgeFrom = new System.Windows.Forms.TextBox();
+            this.txbVertexFrom = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txbEdgeTo = new System.Windows.Forms.TextBox();
+            this.txbVertexTo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txbWeight = new System.Windows.Forms.TextBox();
             this.btnDeleteEdge = new DevComponents.DotNetBar.ButtonX();
@@ -289,14 +289,14 @@
             this.txbMatrix.Multiline = true;
             this.txbMatrix.Name = "txbMatrix";
             this.txbMatrix.ReadOnly = true;
-            this.txbMatrix.Size = new System.Drawing.Size(120, 159);
+            this.txbMatrix.Size = new System.Drawing.Size(137, 178);
             this.txbMatrix.TabIndex = 1;
             // 
             // btnDrawGraph
             // 
             this.btnDrawGraph.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDrawGraph.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDrawGraph.Location = new System.Drawing.Point(24, 230);
+            this.btnDrawGraph.Location = new System.Drawing.Point(24, 256);
             this.btnDrawGraph.Name = "btnDrawGraph";
             this.btnDrawGraph.Size = new System.Drawing.Size(120, 23);
             this.btnDrawGraph.TabIndex = 2;
@@ -307,7 +307,7 @@
             // 
             this.btnAddEdge.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnAddEdge.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddEdge.Location = new System.Drawing.Point(16, 346);
+            this.btnAddEdge.Location = new System.Drawing.Point(16, 372);
             this.btnAddEdge.Name = "btnAddEdge";
             this.btnAddEdge.Size = new System.Drawing.Size(73, 26);
             this.btnAddEdge.TabIndex = 3;
@@ -317,7 +317,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(21, 221);
+            this.label1.Location = new System.Drawing.Point(21, 247);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 1);
             this.label1.TabIndex = 4;
@@ -325,7 +325,7 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(21, 260);
+            this.label2.Location = new System.Drawing.Point(21, 286);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 1);
             this.label2.TabIndex = 5;
@@ -334,41 +334,41 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(24, 268);
+            this.label3.Location = new System.Drawing.Point(24, 294);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "Đỉnh đi: ";
             // 
-            // txbEdgeFrom
+            // txbVertexFrom
             // 
-            this.txbEdgeFrom.Location = new System.Drawing.Point(81, 266);
-            this.txbEdgeFrom.Name = "txbEdgeFrom";
-            this.txbEdgeFrom.Size = new System.Drawing.Size(51, 20);
-            this.txbEdgeFrom.TabIndex = 7;
+            this.txbVertexFrom.Location = new System.Drawing.Point(81, 292);
+            this.txbVertexFrom.Name = "txbVertexFrom";
+            this.txbVertexFrom.Size = new System.Drawing.Size(51, 20);
+            this.txbVertexFrom.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(24, 295);
+            this.label4.Location = new System.Drawing.Point(24, 321);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "Đỉnh đến: ";
             // 
-            // txbEdgeTo
+            // txbVertexTo
             // 
-            this.txbEdgeTo.Location = new System.Drawing.Point(81, 293);
-            this.txbEdgeTo.Name = "txbEdgeTo";
-            this.txbEdgeTo.Size = new System.Drawing.Size(51, 20);
-            this.txbEdgeTo.TabIndex = 7;
+            this.txbVertexTo.Location = new System.Drawing.Point(81, 319);
+            this.txbVertexTo.Name = "txbVertexTo";
+            this.txbVertexTo.Size = new System.Drawing.Size(51, 20);
+            this.txbVertexTo.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(24, 321);
+            this.label5.Location = new System.Drawing.Point(24, 347);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 16);
             this.label5.TabIndex = 6;
@@ -376,7 +376,7 @@
             // 
             // txbWeight
             // 
-            this.txbWeight.Location = new System.Drawing.Point(81, 319);
+            this.txbWeight.Location = new System.Drawing.Point(81, 345);
             this.txbWeight.Name = "txbWeight";
             this.txbWeight.Size = new System.Drawing.Size(51, 20);
             this.txbWeight.TabIndex = 7;
@@ -385,7 +385,7 @@
             // 
             this.btnDeleteEdge.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDeleteEdge.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDeleteEdge.Location = new System.Drawing.Point(94, 346);
+            this.btnDeleteEdge.Location = new System.Drawing.Point(94, 372);
             this.btnDeleteEdge.Name = "btnDeleteEdge";
             this.btnDeleteEdge.Size = new System.Drawing.Size(61, 26);
             this.btnDeleteEdge.TabIndex = 3;
@@ -396,7 +396,7 @@
             // 
             this.btnChangeWeight.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnChangeWeight.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnChangeWeight.Location = new System.Drawing.Point(16, 375);
+            this.btnChangeWeight.Location = new System.Drawing.Point(16, 401);
             this.btnChangeWeight.Name = "btnChangeWeight";
             this.btnChangeWeight.Size = new System.Drawing.Size(73, 26);
             this.btnChangeWeight.TabIndex = 3;
@@ -407,7 +407,7 @@
             // 
             this.btnAddVertex.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnAddVertex.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddVertex.Location = new System.Drawing.Point(16, 432);
+            this.btnAddVertex.Location = new System.Drawing.Point(16, 458);
             this.btnAddVertex.Name = "btnAddVertex";
             this.btnAddVertex.Size = new System.Drawing.Size(73, 26);
             this.btnAddVertex.TabIndex = 3;
@@ -418,7 +418,7 @@
             // 
             this.btnDeleteVertex.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDeleteVertex.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDeleteVertex.Location = new System.Drawing.Point(94, 432);
+            this.btnDeleteVertex.Location = new System.Drawing.Point(94, 458);
             this.btnDeleteVertex.Name = "btnDeleteVertex";
             this.btnDeleteVertex.Size = new System.Drawing.Size(61, 26);
             this.btnDeleteVertex.TabIndex = 3;
@@ -428,7 +428,7 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(21, 462);
+            this.label6.Location = new System.Drawing.Point(21, 488);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(130, 1);
             this.label6.TabIndex = 8;
@@ -436,7 +436,7 @@
             // label7
             // 
             this.label7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(21, 404);
+            this.label7.Location = new System.Drawing.Point(21, 430);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(130, 1);
             this.label7.TabIndex = 9;
@@ -445,7 +445,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(24, 410);
+            this.label8.Location = new System.Drawing.Point(24, 436);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 16);
             this.label8.TabIndex = 6;
@@ -454,7 +454,7 @@
             // cbVertex
             // 
             this.cbVertex.FormattingEnabled = true;
-            this.cbVertex.Location = new System.Drawing.Point(89, 407);
+            this.cbVertex.Location = new System.Drawing.Point(89, 433);
             this.cbVertex.Name = "cbVertex";
             this.cbVertex.Size = new System.Drawing.Size(57, 21);
             this.cbVertex.TabIndex = 10;
@@ -463,7 +463,7 @@
             // 
             this.btnBFS.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnBFS.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnBFS.Location = new System.Drawing.Point(16, 466);
+            this.btnBFS.Location = new System.Drawing.Point(16, 492);
             this.btnBFS.Name = "btnBFS";
             this.btnBFS.Size = new System.Drawing.Size(73, 26);
             this.btnBFS.TabIndex = 3;
@@ -474,7 +474,7 @@
             // 
             this.btnDFS.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDFS.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDFS.Location = new System.Drawing.Point(94, 466);
+            this.btnDFS.Location = new System.Drawing.Point(94, 492);
             this.btnDFS.Name = "btnDFS";
             this.btnDFS.Size = new System.Drawing.Size(61, 26);
             this.btnDFS.TabIndex = 3;
@@ -483,7 +483,7 @@
             // 
             // txbPath
             // 
-            this.txbPath.Location = new System.Drawing.Point(16, 571);
+            this.txbPath.Location = new System.Drawing.Point(16, 597);
             this.txbPath.Multiline = true;
             this.txbPath.Name = "txbPath";
             this.txbPath.Size = new System.Drawing.Size(139, 92);
@@ -493,7 +493,7 @@
             // 
             this.btnCheckConnect.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCheckConnect.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCheckConnect.Location = new System.Drawing.Point(16, 498);
+            this.btnCheckConnect.Location = new System.Drawing.Point(16, 524);
             this.btnCheckConnect.Name = "btnCheckConnect";
             this.btnCheckConnect.Size = new System.Drawing.Size(91, 26);
             this.btnCheckConnect.TabIndex = 3;
@@ -504,7 +504,7 @@
             // 
             this.btnHamilton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnHamilton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnHamilton.Location = new System.Drawing.Point(16, 532);
+            this.btnHamilton.Location = new System.Drawing.Point(16, 558);
             this.btnHamilton.Name = "btnHamilton";
             this.btnHamilton.Size = new System.Drawing.Size(116, 26);
             this.btnHamilton.TabIndex = 3;
@@ -521,8 +521,8 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txbWeight);
-            this.Controls.Add(this.txbEdgeTo);
-            this.Controls.Add(this.txbEdgeFrom);
+            this.Controls.Add(this.txbVertexTo);
+            this.Controls.Add(this.txbVertexFrom);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label8);
@@ -578,9 +578,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txbEdgeFrom;
+        private System.Windows.Forms.TextBox txbVertexFrom;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txbEdgeTo;
+        private System.Windows.Forms.TextBox txbVertexTo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txbWeight;
         private DevComponents.DotNetBar.ButtonX btnDeleteEdge;
