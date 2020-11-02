@@ -17,6 +17,7 @@ namespace EOT_LTĐT
 {
     public partial class Form1 : Form
     {
+        string fileName;
         Graphics g;
         int vertex;
         int[,] matrix;
@@ -29,10 +30,7 @@ namespace EOT_LTĐT
         int nP = 0;
         int[] connect;
         int nC = 0, check = -1;
-        int[] hamilton = new int[20];
         int nH;
-        Pen grayPen = new Pen(Color.Gray, 2);
-        Pen redPen = new Pen(Color.Red, 2);
         public Form1()
         {
             InitializeComponent();
@@ -102,6 +100,8 @@ namespace EOT_LTĐT
         {
             this.Refresh();
             point = new Point[vertex];
+            //-----------
+            Pen grayPen = new Pen(Color.Gray, 2);
             //Draw Vertex
             for (int i = 0; i < vertex; i++)
             {
@@ -128,38 +128,43 @@ namespace EOT_LTĐT
                     }
                 }
             }
+            grayPen.Dispose();
         }
-        private bool addEdge(int edgeFrom, int edgeTo, int Weight)
+        private bool addEdge(int vertexFrom, int vertexTo, int Weight)
         {
-            if (matrix[edgeFrom - 1, edgeTo - 1] != 0)
+            if (matrix[vertexFrom - 1, vertexTo - 1] != 0)
             {
                 MessageBox.Show("Đã có cạnh này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                Point pointFrom = new Point(x[edgeFrom - 1] - 1, y[edgeFrom - 1] - 14);
-                Point pointTo = new Point(x[edgeTo - 1] - 1, y[edgeTo - 1] - 14);
+                //-----------
+                Pen grayPen = new Pen(Color.Gray, 2);
+
+                Point pointFrom = new Point(x[vertexFrom - 1] - 1, y[vertexFrom - 1] - 14);
+                Point pointTo = new Point(x[vertexTo - 1] - 1, y[vertexTo - 1] - 14);
                 if (!isSymmetryMatrix())
                 {
-                    matrix[edgeFrom - 1, edgeTo - 1] = Weight;
+                    matrix[vertexFrom - 1, vertexTo - 1] = Weight;
                 }
                 else
                 {
-                    matrix[edgeFrom - 1, edgeTo - 1] = Weight;
-                    matrix[edgeTo - 1, edgeFrom - 1] = Weight;
+                    matrix[vertexFrom - 1, vertexTo - 1] = Weight;
+                    matrix[vertexTo - 1, vertexFrom - 1] = Weight;
                 }
                 g.DrawLine(grayPen, pointFrom, pointTo);
-                g.DrawString(Weight.ToString(), new Font("Arial", 10), new SolidBrush(Color.Black), ((x[edgeFrom - 1] - 1) + (x[edgeTo - 1] - 1)) / 2, ((y[edgeFrom - 1] - 14) + (y[edgeTo - 1] - 14)) / 2);
-                writeMatrix(vertex, matrix, "Matrix.txt");
-                readMatrix("Matrix.txt");
+                g.DrawString(Weight.ToString(), new Font("Arial", 10), new SolidBrush(Color.Black), ((x[vertexFrom - 1] - 1) + (x[vertexTo - 1] - 1)) / 2, ((y[vertexFrom - 1] - 14) + (y[vertexTo - 1] - 14)) / 2);
+                grayPen.Dispose();
+                writeMatrix(vertex, matrix, fileName);
+                readMatrix(fileName);
                 loadGraph();
                 return true;
             }
             return false;
         }
-        private bool deleteEdge(int edgeFrom, int edgeTo)
+        private bool deleteEdge(int vertexFrom, int vertexTo)
         {
-            if (matrix[edgeFrom - 1, edgeTo - 1] == 0)
+            if (matrix[vertexFrom - 1, vertexTo - 1] == 0)
             {
                 MessageBox.Show("Không có cạnh này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -167,23 +172,23 @@ namespace EOT_LTĐT
             {
                 if (!isSymmetryMatrix())
                 {
-                    matrix[edgeFrom - 1, edgeTo - 1] = 0;
+                    matrix[vertexFrom - 1, vertexTo - 1] = 0;
                 }
                 else
                 {
-                    matrix[edgeFrom - 1, edgeTo - 1] = 0;
-                    matrix[edgeTo - 1, edgeFrom - 1] = 0;
+                    matrix[vertexFrom - 1, vertexTo - 1] = 0;
+                    matrix[vertexTo - 1, vertexFrom - 1] = 0;
                 }
-                writeMatrix(vertex, matrix, "Matrix.txt");
-                readMatrix("Matrix.txt");
+                writeMatrix(vertex, matrix, fileName);
+                readMatrix(fileName);
                 loadGraph();
                 return true;
             }
             return false;
         }
-        private bool changeWeight(int edgeFrom, int edgeTo, int newWeight)
+        private bool changeWeight(int vertexFrom, int vertexTo, int newWeight)
         {
-            if (matrix[edgeFrom - 1, edgeTo - 1] == 0)
+            if (matrix[vertexFrom - 1, vertexTo - 1] == 0)
             {
                 MessageBox.Show("Không có cạnh này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -191,15 +196,15 @@ namespace EOT_LTĐT
             {
                 if (!isSymmetryMatrix())
                 {
-                    matrix[edgeFrom - 1, edgeTo - 1] = newWeight;
+                    matrix[vertexFrom - 1, vertexTo - 1] = newWeight;
                 }
                 else
                 {
-                    matrix[edgeFrom - 1, edgeTo - 1] = newWeight;
-                    matrix[edgeTo - 1, edgeFrom - 1] = newWeight;
+                    matrix[vertexFrom - 1, vertexTo - 1] = newWeight;
+                    matrix[vertexTo - 1, vertexFrom - 1] = newWeight;
                 }
-                writeMatrix(vertex, matrix, "Matrix.txt");
-                readMatrix("Matrix.txt");
+                writeMatrix(vertex, matrix, fileName);
+                readMatrix(fileName);
                 loadGraph();
                 return true;
             }
@@ -223,8 +228,8 @@ namespace EOT_LTĐT
                 matrix[i, vertex - 1] = 0;
                 matrix[vertex - 1, i] = 0;
             }
-            writeMatrix(vertex, matrix, "Matrix.txt");
-            readMatrix("Matrix.txt");
+            writeMatrix(vertex, matrix, fileName);
+            readMatrix(fileName);
             loadGraph();
             return true;
         }
@@ -260,12 +265,12 @@ namespace EOT_LTĐT
                     matrix[i, j] = saveMatrix[i, j];
                 }
             }
-            writeMatrix(vertex, matrix, "Matrix.txt");
-            readMatrix("Matrix.txt");
+            writeMatrix(vertex, matrix, fileName);
+            readMatrix(fileName);
             loadGraph();
             return true;
         }
-        private bool BFS(int edgeFrom, int edgeTo)
+        private bool BFS(int vertexFrom, int vertexTo)
         {
             visited = new int[vertex];
             path = new int[vertex];
@@ -276,7 +281,7 @@ namespace EOT_LTĐT
             }
 
             Queue queue = new Queue();
-            queue.Enqueue(edgeFrom);
+            queue.Enqueue(vertexFrom);
             while (queue.Count != 0)
             {
                 int element = Convert.ToInt32(queue.Dequeue());
@@ -292,18 +297,20 @@ namespace EOT_LTĐT
             }
             int[] result = new int[vertex];
             int n = 0;
-            if (visited[edgeTo] == 1)
+            if (visited[vertexTo] == 1)
             {
-                int j = edgeTo;
-                while (j != edgeFrom)
+                int j = vertexTo;
+                while (j != vertexFrom)
                 {
                     result[n] = j;
                     j = path[j];
                     n++;
                 }
-                result[n] = edgeFrom;
+                result[n] = vertexFrom;
                 for (int i = 0; i < n; i++)
                 {
+                    //-----------------
+                    Pen redPen = new Pen(Color.Red, 2);
                     if (!isSymmetryMatrix())
                     {
                         AdjustableArrowCap arrowSize = new AdjustableArrowCap(5, 5);
@@ -311,6 +318,7 @@ namespace EOT_LTĐT
                         redPen.CustomStartCap = arrowSize;
                     }
                     g.DrawLine(redPen, point[result[i]], point[result[i + 1]]);
+                    redPen.Dispose();
                     txbPath.Text += (result[i] + 1).ToString() + "<--";
                     Thread.Sleep(1000);
                 }
@@ -323,14 +331,14 @@ namespace EOT_LTĐT
             }
             return true;
         }
-        private void backtracking(int edgeFrom)
+        private void backtracking(int vertexFrom)
         {
-            visited[edgeFrom] = 1;
+            visited[vertexFrom] = 1;
             for (int i = 0; i < vertex; i++)
             {
-                if (visited[i] == 0 && matrix[edgeFrom, i] != 0)
+                if (visited[i] == 0 && matrix[vertexFrom, i] != 0)
                 {
-                    path[i] = edgeFrom;
+                    path[i] = vertexFrom;
                     backtracking(i);
                 }
             }
@@ -361,6 +369,8 @@ namespace EOT_LTĐT
                 result[n] = vertexFrom;
                 for (int i = 0; i < n; i++)
                 {
+                    //-----------------
+                    Pen redPen = new Pen(Color.Red, 2);
                     if (!isSymmetryMatrix())
                     {
                         AdjustableArrowCap arrowSize = new AdjustableArrowCap(5, 5);
@@ -368,6 +378,7 @@ namespace EOT_LTĐT
                         redPen.CustomStartCap = arrowSize;
                     }
                     g.DrawLine(redPen, point[result[i]], point[result[i + 1]]);
+                    redPen.Dispose();
                     txbPath.Text += (result[i] + 1).ToString() + "<--";
                     Thread.Sleep(1000);
                 }
@@ -379,6 +390,68 @@ namespace EOT_LTĐT
                 MessageBox.Show("Không có đường đi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+            return true;
+        }
+        private bool DFS2(int vertexFrom, int vertexTo)
+        {
+            visited = new int[vertex];
+            path = new int[vertex];
+            for (int i = 0; i < vertex; i++)
+            {
+                visited[i] = 0;
+                path[i] = -1;
+            }
+
+            Stack stack = new Stack();
+            stack.Push(vertexFrom);
+            while(stack.Count != 0)
+            {
+                int element = Convert.ToInt32(stack.Pop());
+                visited[element] = 1;
+                for (int i = 0; i < vertex; i++)
+                {
+                    if (visited[i] == 0 && matrix[element, i] != 0)
+                    {
+                        visited[i] = 1;
+                        stack.Push(i);
+                        path[i] = element;
+                    }
+                }
+            }
+            int[] result = new int[vertex];
+            int n = 0;
+            if (visited[vertexTo] == 1)
+            {
+                int j = vertexTo;
+                while (j != vertexFrom)
+                {
+                    result[n] = j;
+                    j = path[j];
+                    n++;
+                }
+                result[n] = vertexFrom;
+                for (int i = 0; i < n; i++)
+                {
+                    //-----------------
+                    Pen redPen = new Pen(Color.Red, 2);
+                    if (!isSymmetryMatrix())
+                    {
+                        AdjustableArrowCap arrowSize = new AdjustableArrowCap(5, 5);
+                        redPen.StartCap = LineCap.ArrowAnchor;
+                        redPen.CustomStartCap = arrowSize;
+                    }
+                    g.DrawLine(redPen, point[result[i]], point[result[i + 1]]);
+                    redPen.Dispose();
+                    txbPath.Text += (result[i] + 1).ToString() + "<--";
+                    Thread.Sleep(1000);
+                }
+                txbPath.Text += result[n] + 1;
+                MessageBox.Show("Xong", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Không có đường đi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             return true;
         }
         //i là đỉnh, nConnect là nhãn dán theo liên thông của từng đỉnh
@@ -428,15 +501,28 @@ namespace EOT_LTĐT
             if (nConnect == 1) return true;
             return false;
         }
-        private void backtracking1(int k)
+        private void showHamiltonPath(int nP, int[] path)
         {
-            if (nH == vertex && matrix[k, 0] != 0)
+            //-----------------
+            Pen redPen = new Pen(Color.Red, 2);
+            loadGraph();
+            path[nP] = path[0];
+            for (int i = 0; i < nP; i++)
             {
-                nP = nH;
-                for (int i = 1; i < nH; i++)
-                {
-                    path[i] = hamilton[i];
-                }
+                g.DrawLine(redPen, point[path[i]], point[path[i + 1]]);
+                Thread.Sleep(1000);
+                txbPath.Text += (path[i] + 1).ToString();
+                if (i < nP) txbPath.Text += "-->";
+            }
+            txbPath.Text += int.Parse(cbVertex.SelectedItem.ToString()) + Environment.NewLine;
+            redPen.Dispose();
+        }
+        private void backtracking1(int k, int vertexFrom)
+        {
+            if (nP == vertex && matrix[k, vertexFrom] != 0)
+            {
+                nH = nP;
+                showHamiltonPath(nP, path);
             }
             else
             {
@@ -444,33 +530,32 @@ namespace EOT_LTĐT
                 {
                     if (visited[i] == 0 && matrix[k, i] != 0)
                     {
-                        hamilton[nH] = i;
-                        nH++;
+                        path[nP] = i;
+                        nP++;
                         visited[i] = 1;
-                        backtracking1(i);
+                        backtracking1(i, vertexFrom);
                         visited[i] = 0;
-                        nH--;
+                        nP--;
                     }
                 }
             }
         }
-        private bool Hamilton(int edgeFrom)
+        private bool Hamilton(int vertexFrom)
         {
+            nP = 0;
             visited = new int[vertex];
             path = new int[vertex + 1];
             for (int i = 0; i < vertex; i++)
             {
                 visited[i] = 0;
             }
-            visited[edgeFrom] = 1;
-            path[0] = edgeFrom;
+            visited[vertexFrom] = 1;
+            path[nP] = vertexFrom;
             nP++;
-            hamilton[0] = edgeFrom;
-            nH++;
 
-            backtracking1(edgeFrom);
-
-            if (nP < vertex) return false;
+            backtracking1(vertexFrom, vertexFrom);
+            
+            if (nH < vertex) return false;
             return true;
         }
         #endregion
@@ -482,7 +567,12 @@ namespace EOT_LTĐT
             if (open.ShowDialog() == DialogResult.OK)
             {
                 readMatrix(open.FileName);
+                fileName = open.FileName;
             }
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         private void btnDrawGraph_Click(object sender, EventArgs e)
         {
@@ -546,20 +636,49 @@ namespace EOT_LTĐT
         }
         private void btnBFS_Click(object sender, EventArgs e)
         {
-            txbPath.Clear();
-            loadGraph();
-            BFS(int.Parse(txbVertexFrom.Text) - 1, int.Parse(txbVertexTo.Text) - 1);
+            if (txbVertexFrom.Text == "" || txbVertexTo.Text == "")
+            {
+                MessageBox.Show("Nhập đủ đỉnh để tìm kiếm theo chiều rộng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                txbPath.Clear();
+                loadGraph();
+                BFS(int.Parse(txbVertexFrom.Text) - 1, int.Parse(txbVertexTo.Text) - 1);
+            }
         }
         private void btnDFS_Click(object sender, EventArgs e)
         {
-            txbPath.Clear();
-            loadGraph();
-            DFS(int.Parse(txbVertexFrom.Text) - 1, int.Parse(txbVertexTo.Text) - 1);
+            if (txbVertexFrom.Text == "" || txbVertexTo.Text == "")
+            {
+                MessageBox.Show("Nhập đủ đỉnh để tìm kiếm theo chiều sâu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                txbPath.Clear();
+                loadGraph();
+                DFS(int.Parse(txbVertexFrom.Text) - 1, int.Parse(txbVertexTo.Text) - 1);
+            }
+        }
+        private void btnDFS2_Click(object sender, EventArgs e)
+        {
+            if (txbVertexFrom.Text == "" || txbVertexTo.Text == "")
+            {
+                MessageBox.Show("Nhập đủ đỉnh để tìm kiếm theo chiều sâu 2", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                txbPath.Clear();
+                loadGraph();
+                DFS2(int.Parse(txbVertexFrom.Text) - 1, int.Parse(txbVertexTo.Text) - 1);
+            }
         }
         private void btnCheckConnect_Click(object sender, EventArgs e)
         {
             txbPath.Clear();
             loadGraph();
+            //-----------------
+            Pen redPen = new Pen(Color.Red, 2);
             if (Connect())
             {
                 for (int i = 0; i < nC - 1; i++)
@@ -590,6 +709,7 @@ namespace EOT_LTĐT
                     }
                     Thread.Sleep(1000);
                 }
+                randomPen.Dispose();
                 txbPath.Text = "Đồ thị không liên thông và có " + nConnect + " thành phần liên thông" + Environment.NewLine;
                 for (int i = 1; i <= nConnect; i++)
                 {
@@ -604,25 +724,14 @@ namespace EOT_LTĐT
                 }
                 MessageBox.Show("Xong", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            redPen.Dispose();
         }
         private void btnHamilton_Click(object sender, EventArgs e)
         {
             txbPath.Clear();
             loadGraph();
-            if (Hamilton(int.Parse(cbVertex.SelectedItem.ToString()) - 1))
-            {
-                path[nP] = int.Parse(cbVertex.SelectedItem.ToString()) - 1;
-                for (int i = 0; i < nP; i++)
-                {
-                    g.DrawLine(redPen, point[path[i]], point[path[i + 1]]);
-                    Thread.Sleep(1000);
-                    txbPath.Text += (path[i] + 1).ToString();
-                    if (i < nP) txbPath.Text += "-->";
-                }
-                txbPath.Text += int.Parse(cbVertex.SelectedItem.ToString());
-                
-            }
-            else
+
+            if (!Hamilton(int.Parse(cbVertex.SelectedItem.ToString()) - 1))
             {
                 txbPath.Text = "Không có đường đi Hamilton.";
             }

@@ -36,10 +36,7 @@
             this.itemContainer3 = new DevComponents.DotNetBar.ItemContainer();
             this.buttonItem2 = new DevComponents.DotNetBar.ButtonItem();
             this.btnOpenFile = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem4 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem5 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem6 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem7 = new DevComponents.DotNetBar.ButtonItem();
+            this.btnExit = new DevComponents.DotNetBar.ButtonItem();
             this.galleryContainer1 = new DevComponents.DotNetBar.GalleryContainer();
             this.labelItem8 = new DevComponents.DotNetBar.LabelItem();
             this.buttonItem8 = new DevComponents.DotNetBar.ButtonItem();
@@ -73,6 +70,7 @@
             this.txbPath = new System.Windows.Forms.TextBox();
             this.btnCheckConnect = new DevComponents.DotNetBar.ButtonX();
             this.btnHamilton = new DevComponents.DotNetBar.ButtonX();
+            this.btnDFS2 = new DevComponents.DotNetBar.ButtonX();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -144,10 +142,7 @@
             this.itemContainer3.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem2,
             this.btnOpenFile,
-            this.buttonItem4,
-            this.buttonItem5,
-            this.buttonItem6,
-            this.buttonItem7});
+            this.btnExit});
             // 
             // buttonItem2
             // 
@@ -166,39 +161,15 @@
             this.btnOpenFile.Text = "&Open File...";
             this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
-            // buttonItem4
+            // btnExit
             // 
-            this.buttonItem4.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem4.ImagePaddingHorizontal = 8;
-            this.buttonItem4.Name = "buttonItem4";
-            this.buttonItem4.SubItemsExpandWidth = 24;
-            this.buttonItem4.Text = "&Save...";
-            // 
-            // buttonItem5
-            // 
-            this.buttonItem5.BeginGroup = true;
-            this.buttonItem5.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem5.ImagePaddingHorizontal = 8;
-            this.buttonItem5.Name = "buttonItem5";
-            this.buttonItem5.SubItemsExpandWidth = 24;
-            this.buttonItem5.Text = "S&hare...";
-            // 
-            // buttonItem6
-            // 
-            this.buttonItem6.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem6.ImagePaddingHorizontal = 8;
-            this.buttonItem6.Name = "buttonItem6";
-            this.buttonItem6.SubItemsExpandWidth = 24;
-            this.buttonItem6.Text = "&Print...";
-            // 
-            // buttonItem7
-            // 
-            this.buttonItem7.BeginGroup = true;
-            this.buttonItem7.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem7.ImagePaddingHorizontal = 8;
-            this.buttonItem7.Name = "buttonItem7";
-            this.buttonItem7.SubItemsExpandWidth = 24;
-            this.buttonItem7.Text = "&Close";
+            this.btnExit.BeginGroup = true;
+            this.btnExit.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnExit.ImagePaddingHorizontal = 8;
+            this.btnExit.Name = "btnExit";
+            this.btnExit.SubItemsExpandWidth = 24;
+            this.btnExit.Text = "&Close";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // galleryContainer1
             // 
@@ -298,7 +269,7 @@
             this.btnDrawGraph.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnDrawGraph.Location = new System.Drawing.Point(24, 256);
             this.btnDrawGraph.Name = "btnDrawGraph";
-            this.btnDrawGraph.Size = new System.Drawing.Size(120, 23);
+            this.btnDrawGraph.Size = new System.Drawing.Size(127, 23);
             this.btnDrawGraph.TabIndex = 2;
             this.btnDrawGraph.Text = "Vẽ đồ thị";
             this.btnDrawGraph.Click += new System.EventHandler(this.btnDrawGraph_Click);
@@ -465,7 +436,7 @@
             this.btnBFS.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnBFS.Location = new System.Drawing.Point(16, 492);
             this.btnBFS.Name = "btnBFS";
-            this.btnBFS.Size = new System.Drawing.Size(73, 26);
+            this.btnBFS.Size = new System.Drawing.Size(42, 26);
             this.btnBFS.TabIndex = 3;
             this.btnBFS.Text = "BFS";
             this.btnBFS.Click += new System.EventHandler(this.btnBFS_Click);
@@ -474,11 +445,11 @@
             // 
             this.btnDFS.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDFS.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDFS.Location = new System.Drawing.Point(94, 492);
+            this.btnDFS.Location = new System.Drawing.Point(64, 492);
             this.btnDFS.Name = "btnDFS";
-            this.btnDFS.Size = new System.Drawing.Size(61, 26);
+            this.btnDFS.Size = new System.Drawing.Size(43, 26);
             this.btnDFS.TabIndex = 3;
-            this.btnDFS.Text = "DFS";
+            this.btnDFS.Text = "DFS 1";
             this.btnDFS.Click += new System.EventHandler(this.btnDFS_Click);
             // 
             // txbPath
@@ -486,7 +457,7 @@
             this.txbPath.Location = new System.Drawing.Point(16, 597);
             this.txbPath.Multiline = true;
             this.txbPath.Name = "txbPath";
-            this.txbPath.Size = new System.Drawing.Size(139, 92);
+            this.txbPath.Size = new System.Drawing.Size(145, 92);
             this.txbPath.TabIndex = 11;
             // 
             // btnCheckConnect
@@ -511,6 +482,17 @@
             this.btnHamilton.Text = "Chu trình Hamilton";
             this.btnHamilton.Click += new System.EventHandler(this.btnHamilton_Click);
             // 
+            // btnDFS2
+            // 
+            this.btnDFS2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDFS2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDFS2.Location = new System.Drawing.Point(113, 492);
+            this.btnDFS2.Name = "btnDFS2";
+            this.btnDFS2.Size = new System.Drawing.Size(43, 26);
+            this.btnDFS2.TabIndex = 3;
+            this.btnDFS2.Text = "DFS 2";
+            this.btnDFS2.Click += new System.EventHandler(this.btnDFS2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,6 +511,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnDFS2);
             this.Controls.Add(this.btnDFS);
             this.Controls.Add(this.btnDeleteVertex);
             this.Controls.Add(this.btnDeleteEdge);
@@ -544,7 +527,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lý thuyết đồ thị";
+            this.Text = "Lý thuyết đồ thị - Nhóm DOT";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -559,10 +542,7 @@
         private DevComponents.DotNetBar.ItemContainer itemContainer3;
         private DevComponents.DotNetBar.ButtonItem buttonItem2;
         private DevComponents.DotNetBar.ButtonItem btnOpenFile;
-        private DevComponents.DotNetBar.ButtonItem buttonItem4;
-        private DevComponents.DotNetBar.ButtonItem buttonItem5;
-        private DevComponents.DotNetBar.ButtonItem buttonItem6;
-        private DevComponents.DotNetBar.ButtonItem buttonItem7;
+        private DevComponents.DotNetBar.ButtonItem btnExit;
         private DevComponents.DotNetBar.GalleryContainer galleryContainer1;
         private DevComponents.DotNetBar.LabelItem labelItem8;
         private DevComponents.DotNetBar.ButtonItem buttonItem8;
@@ -596,6 +576,7 @@
         private System.Windows.Forms.TextBox txbPath;
         private DevComponents.DotNetBar.ButtonX btnCheckConnect;
         private DevComponents.DotNetBar.ButtonX btnHamilton;
+        private DevComponents.DotNetBar.ButtonX btnDFS2;
     }
 }
 
